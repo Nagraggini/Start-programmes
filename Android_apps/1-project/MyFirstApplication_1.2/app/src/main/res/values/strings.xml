@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Első Appom</string>
+    <string name="hello">\n Hello!\n \n Here is my first app.</string>
+    <string name="push_button">Push it!</string>
+    <string name="start">Start the game!</string>
+    <string name="score">Score: 0</string>
+    <string name="buttonOnSecAct">Score: 0</string>
+</resources>

@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">TapTheBall</string>
+    <string name="button">Tap me!</string>
+    <string name="score">Score: 0 </string>
+</resources>

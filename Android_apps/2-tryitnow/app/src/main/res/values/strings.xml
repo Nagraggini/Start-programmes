@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Try it now</string>
+    <string name="hello">\n Hello!\n \n Here is my first app.</string>
+    <string name="push_button">Push it!</string>
+</resources>
