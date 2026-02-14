@@ -1,0 +1,55 @@
+<!--TODO:
+- Csinálj egy reset gombot, amin átmegy a fényes csík. 
+- Pont számláló. -->
+
+<!DOCTYPE html>
+<html lang="hu"> <!--Gyökér node.-->
+
+<head>
+	<meta charset="UTF-8">
+
+	<!-- Ez biztosítja, hogy az oldal a készülék szélességére lesz szabva, és a nagyítást is korlátozza. -->
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Rock, Paper, Scissors Game!</title>
+	<link rel="stylesheet" href="styles_Stone_game.css"> <!--Stílus kialakítása-->
+</head>
+
+<body>
+	<h1>Rock, Paper, Scissors Game!</h1>
+
+	<div class="results-container">
+		<!--Pont számláláshoz.--> <!--A hidden a css-ben van definiálva.-->
+		<p id="outputUserresult"></p>
+		<p id="outputComputerresult"></p>
+	</div>
+	<h2>Choose your choice:</h2>
+
+	<div class="button-container">
+
+		<!-- Az id rész fontos, mert ezzel hivatkozunk a javascriptben a gombokra. -->
+		<button id="rock-btn" class="image-button" data-choice="rock">
+			<img src="rock.jpg" alt="Rock">
+		</button>
+		<button id="paper-btn" class="image-button" data-choice="paper">
+			<img src="paper.jpg" alt="Paper">
+		</button>
+		<button id="scissors-btn" class="image-button" data-choice="scissors">
+			<img src="scissors.jpg" alt="Scissors">
+		</button>
+	</div>
+
+	<!-- Itt jelenik meg, hogy mit választott a felhasználó. -->
+	<p id="outputChoiceUser"></p>
+
+	<!-- Itt jelenik meg, hogy mit választott a gép. -->
+	<p id="outputChoiceComputer"></p>
+
+	<!-- Itt jelenik meg az eredmény. -->
+	<p id="outputResult"></p>
+
+	<!-- A gomb eseményeket javascriptben kezeljük. -->
+	<script src="script_Stone_game.js"></script>
+
+</body>
+
+</html>

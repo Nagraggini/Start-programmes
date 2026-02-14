@@ -1,0 +1,285 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: black;
+    /* Ez állítja be az egész oldal háttérszínét */
+}
+
+/* A főcím és alcím stílusai */
+h1 {
+    font-size: 36px;
+    color: #ddcfcf;
+    margin-bottom: 5px;
+    text-align: center;
+    text-transform: uppercase;
+    /* Nagybetűs szöveg */
+}
+
+h2 {
+    font-size: 24px;
+    color: #ddcfcf;
+    margin-bottom: 20px;
+    /* Térköz a címek és a gombok között */
+    text-align: center;
+    /*Középre igazítás.*/
+}
+
+p {
+    font-size: 20px;
+    /* A betűméret */
+    color: #ddcfcf;
+    line-height: 0, 8;
+    /* A sorok közötti távolság */
+    width: 300px;
+    /* A szélesség */
+    height: auto;
+    /* Automatikus magasság */
+    margin-bottom: 20px;
+    /* Térköz a címek és a gombok között */
+}
+
+/* Gombokat tartalmazó konténer */
+.button-container {
+    display: flex;
+    /* A gombok egymás mellé rendezése */
+    gap: 20px;
+    /* Térköz a gombok között */
+    flex-wrap: wrap;
+    /* Ha nem fér el a gomb, új sorba kerül */
+    justify-content: center;
+    /* Középre igazítás */
+}
+
+/* Egyes gombok stílusai */
+.image-button {
+    border: 2px solid #5e1354;
+    /*Keret vastagsága.*/
+    background-color: rgba(110, 5, 84, 0.541);
+    padding: 15px;
+    /*Belső térköz a gomb és a széle között-*/
+    border-radius: 10px;
+    /*A keret sarkainak lekerekítése.*/
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s, box-shadow 0.2s;
+    /*transition -> A gomb nagyítós animációjának az átmenetét biztosítja, hogy szépen lassan legyen nagyobb.*/
+}
+
+/* Gombon belüli képek */
+.image-button img {
+    display: block;
+    /*Automatikusan kitölti a helyet.*/
+    width: 100%;
+    /* A kép szélessége rugalmas lesz */
+    max-width: 250px;
+    /* Maximum szélesség korlátozása */
+    max-height: 250px;
+    /* Maximum magasság korlátozása */
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Feliratok a gombokhoz */
+.image-button span {
+    font-size: 14px;
+    color: #ddcfcf
+}
+
+/* Gomb hover animáció */
+.image-button:hover {
+    transform: scale(1.05);
+    box-shadow: 4px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Eredmények összesítése konténer */
+.results-container {
+    display: flex;
+    justify-content: center;
+    /* Középre igazítás vízszintesen */
+    align-items: center;
+    /* Középre igazítás függőlegesen */
+    gap: 20px;
+    /* Térköz a két szöveg között */
+    margin-top: 10px;
+    /* Térköz a többi elemtől */
+}
+
+/* Egyedi stílus a szövegekhez */
+#outputUserresult,
+#outputComputerresult {
+    font-size: 20px;
+    color: #ddcfcf;
+    font-weight: bold;
+    text-align: center;
+    width: 200px;
+    /* Fix szélesség */
+}
+
+/* A gép választásának a betű stílusa. */
+#outputChoiceComputer {
+    font-size: 20px;
+    color: #ddcfcf;
+    margin-top: 5px;
+    /* Térköz a címek és a gombok között */
+    font-weight: bold;
+    text-align: center;
+}
+
+/* A felhasználó választásának a betű stílusa. */
+#outputChoiceUser {
+    font-size: 20px;
+    color: #ddcfcf;
+    margin-top: 20px;
+    /* Térköz a címek és a gombok között */
+    font-weight: bold;
+    text-align: center;
+}
+
+/* Az eredmény betű stílusa */
+#outputResult {
+    font-size: 30px;
+    color: #ddcfcf;
+    margin-top: 5px;
+    /* Térköz a címek és a gombok között */
+    font-weight: bold;
+    text-align: center;
+}
+
+
+/* Media query: Ha a képernyő szélessége kisebb, mint 600px (mobilok) */
+@media (max-width: 600px) {
+
+    /* A gombok egy oszlopba rendeződnek mobilon */
+    .button-container {
+        flex-direction: row;
+        /*Gombok egymás mellé helyezése.*/
+        gap: 10px;
+        /* Kisebb térköz a gombok között */
+        display: flex;
+        /* A gombok egymás mellé rendezése */
+        /*flex-wrap: wrap;  Ha nem fér el a gomb, új sorba kerül */
+        justify-content: center;
+        /* Középre igazítás */
+    }
+
+    /* A gombok kisebbek legyenek mobilon */
+    .image-button img {
+        display: block;
+        /*Automatikusan kitölti a helyet.*/
+        width: 100%;
+        /* Kép szélessége rugalmas */
+        max-width: 100px;
+        max-height: 100px;
+        padding: 1px;
+        /*Belső térköz a gomb és a széle között-*/
+    }
+
+    .image-button {
+        border: 0, 2px solid #5e1354;
+        /*Keret vastagsága.*/
+        background-color: rgba(110, 5, 84, 0.541);
+        padding: 5px;
+        /*Belső térköz a gomb és a széle között-*/
+        border-radius: 10px;
+        /*A keret sarkainak lekerekítése.*/
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.2);
+        transition: transform 0.2s, box-shadow 0.2s;
+        /*transition -> A gomb nagyítós animációjának az átmenetét biztosítja, hogy szépen lassan legyen nagyobb.*/
+    }
+
+    h1 {
+        font-size: 20px;
+        /* A betűméret */
+        margin-bottom: 15px;
+        /* Kevesebb térköz a címek között */
+    }
+
+    h2 {
+        font-size: 20px;
+        /* A betűméret */
+        margin-bottom: 15px;
+        /* Kevesebb térköz a címek között */
+    }
+
+    p {
+        font-size: 20px;
+        /* A betűméret */
+        line-height: 0, 8;
+        /* A sorok közötti távolság */
+        width: 300px;
+        /* A szélesség */
+        height: auto;
+        /* Automatikus magasság */
+    }
+
+    /* A felhasználó választásának a betű stílusa. */
+    #outputChoiceUser {
+        font-size: 10px;
+        color: #ddcfcf;
+        margin-top: 10px;
+        /* Térköz a címek és a gombok között */
+        font-weight: bold;
+        text-align: center;
+    }
+
+    /* A gép választásának a betű stílusa. */
+    #outputChoiceComputer {
+        font-size: 10px;
+        color: #ddcfcf;
+        margin-top: 5px;
+        /* Térköz a címek és a gombok között */
+        font-weight: bold;
+        text-align: center;
+    }
+
+    /* Az eredmény betű stílusa */
+    #outputResult {
+        font-size: 15px;
+        color: #ddcfcf;
+        margin-top: 5px;
+        /* Térköz a címek és a gombok között */
+        font-weight: bold;
+        text-align: center;
+    }
+
+    #outputUserresult,
+    #outputComputerresult {
+        font-size: 20px;
+        color: #ddcfcf;
+        font-weight: bold;
+        text-align: center;
+        width: 200px;
+        /* Fix szélesség */
+    }
+
+    /* Eredmények összesítése konténer */
+    .results-container {
+        display: flex;
+        justify-content: center;
+        /* Középre igazítás vízszintesen */
+        align-items: center;
+        /* Középre igazítás függőlegesen */
+        gap: 20px;
+        /* Térköz a két szöveg között */
+        margin-top: 10px;
+        /* Térköz a többi elemtől */
+    }
+
+
+}
