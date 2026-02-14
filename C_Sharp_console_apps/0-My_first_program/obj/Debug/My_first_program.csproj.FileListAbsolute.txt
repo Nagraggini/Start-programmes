@@ -1,0 +1,15 @@
+C:\Users\Asus\Documents\Visual Studio 2022\Console_apps\My_first_program\bin\Debug\My_first_program.exe.config
+C:\Users\Asus\Documents\Visual Studio 2022\Console_apps\My_first_program\bin\Debug\My_first_program.exe
+C:\Users\Asus\Documents\Visual Studio 2022\Console_apps\My_first_program\bin\Debug\My_first_program.pdb
+C:\Users\Asus\Documents\Visual Studio 2022\Console_apps\My_first_program\obj\Debug\My_first_program.csproj.AssemblyReference.cache
+C:\Users\Asus\Documents\Visual Studio 2022\Console_apps\My_first_program\obj\Debug\My_first_program.csproj.CoreCompileInputs.cache
+C:\Users\Asus\Documents\Visual Studio 2022\Console_apps\My_first_program\obj\Debug\My_first_program.exe
+C:\Users\Asus\Documents\Visual Studio 2022\Console_apps\My_first_program\obj\Debug\My_first_program.pdb
+C:\Users\Asus\Documents\Visual Studio 2022\Console_apps\0-My_first_program\bin\Debug\My_first_program.exe.config
+C:\Users\Asus\Documents\Visual Studio 2022\Console_apps\0-My_first_program\bin\Debug\My_first_program.exe
+C:\Users\Asus\Documents\Visual Studio 2022\Console_apps\0-My_first_program\bin\Debug\My_first_program.pdb
+C:\Users\Asus\Documents\Visual Studio 2022\Console_apps\0-My_first_program\obj\Debug\My_first_program.csproj.AssemblyReference.cache
+C:\Users\Asus\Documents\Visual Studio 2022\Console_apps\0-My_first_program\obj\Debug\My_first_program.exe.config
+C:\Users\Asus\Documents\Visual Studio 2022\Console_apps\0-My_first_program\obj\Debug\My_first_program.csproj.CoreCompileInputs.cache
+C:\Users\Asus\Documents\Visual Studio 2022\Console_apps\0-My_first_program\obj\Debug\My_first_program.exe
+C:\Users\Asus\Documents\Visual Studio 2022\Console_apps\0-My_first_program\obj\Debug\My_first_program.pdb
