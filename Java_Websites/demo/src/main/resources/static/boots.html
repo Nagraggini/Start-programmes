@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Andi weboldala</title>
+
+        <!--Általában a body végére szokták rakni, hogy a html betöltése után töltsön be. 
+        A defer segítségével letölti a scriptet azonnal, de csak a HTML betöltése után futtatja.-->
+        <script src="/js/script.js" defer></script>
+        <!--A https://getbootstrap.com/ CDN részről illeszd be az alábbi linket.-->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+            crossorigin="anonymous"
+        />
+    </head>
+
+    <body>
+        <header class="bg-light p-3 mb-4">
+            <h1>Spring Boot App</h1>
+            <!-- LOGO
+            <nav>
+                <ul>
+                    <li>LINK 1</li>
+                    <li>LINK 2</li>
+                    <li>LINK 3</li>
+                </ul>
+            </nav>-->
+        </header>
+
+        <main class="container">
+            <!--Bootstrap úgy tudja felismerni ezt, ha container-nek van elnevezve.-->
+            <h2>Üdvözöllek az első dinamikus Spring Boot alkalmazásomban!</h2>
+            <div class="row">
+                <!--Egymás mellé rakja a két szöveg blokkot, de ha nincs hely akkor egymás alatt lesznek.-->
+                <p class="col-md-6">
+                    - Mit csinál az internetező rab a börtönben? <br />- Letölti
+                    a büntetését! <br />
+                    <a href="https://borsosfi.hu/humor/informatikus-viccek"
+                        >További viccekért kattints ide.</a
+                    >
+                </p>
+            </div>
+
+            <figure>
+                <img
+                    src="/img/image.jpg"
+                    alt="baby"
+                    title="cute bunny"
+                    width="35%"
+                />
+                <!--Ha rámész a képre, akkor kiírja a title-t.-->
+                <figcaption>Cute bunny</figcaption>
+            </figure>
+
+            <!--Vízszintes vonal.-->
+            <form action="/process" method="post">
+                <!--Az action azt mondja a böngészőnek: amikor a felhasználó elküldi a formot, 
+                az adatokat ide küldjük a szerver felé. Itt a /process a szerver oldali endpoint, ami fogja feldolgozni az adatokat.-->
+                <fieldset>
+                    <legend id="regLabel">Registration</legend>
+                    <label for="fname">First Name:</label>
+                    <input
+                        class="form-control"
+                        name="fname"
+                        id="fname"
+                        type="text"
+                    />
+                    <br />
+                    <label for="color">Team Color</label>
+                    <input name="color" type="color" id="colorInput" /> <br />
+                    <!--A type="color" miatt jelenik meg a szín választó opció.-->
+                    <input list="subject" name="sub" />
+                    <datalist id="subject">
+                        <!--Ha elkezded beírni megjennek ezek az opciók: -->
+                        <option value="Javascript">JS</option>
+                        <option value="html">HTML</option>
+                        <option value="css">CSS</option>
+                    </datalist>
+                    <input
+                        class="btn btn-primary"
+                        type="submit"
+                        value="SuBmIt"
+                    />
+                </fieldset>
+            </form>
+        </main>
+
+        <a href="https://github.com/Nagraggini/springboot-render"
+            >Forráskódok</a
+        >
+
+        <footer class="text-center mt-4 py-3 bg-light">&copy; 2026</footer>
+    </body>
+</html>

@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>My webpage</title>
+        <link rel="stylesheet" href="/css/style.css" />
+    </head>
+    <body>
+        <header>
+            LOGO
+            <nav>
+                <a href="./home.html">HOME</a> <br />
+                <a href="./boots.html">Boots</a> <br />
+                <a href="">ABOUT</a>
+            </nav>
+        </header>
+        <main id="mainpart">
+            <h1>HEADER TEXT</h1>
+
+            <p>http://localhost:8080/hello.html</p>
+
+            <section class="sec1">text for section 1</section>
+            <section class="sec2">
+                text for section 2 <br />
+                more tect for section 2 <br />
+                more text
+            </section>
+            <form action="/submit">
+                <!--action="/submit" → ez az a szerver oldali endpoint, ahova az adatokat küldjük.-->
+                <fieldset>
+                    <!--Egy vizuális doboz a form elemei körül, segít az űrlap szerkezetének áttekintésében.-->
+                    <legend>INFO</legend>
+                    <!--A mezőcsoport címe, itt: „INFO”.-->
+                    USERNAME: <input name="uname" type="text" />
+                    <input type="submit" value="SEND" />
+                </fieldset>
+                a mezőcsoport címe, itt: „INFO”.
+            </form>
+            <table>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Password</th>
+                </tr>
+                <tr>
+                    <td>Bobby</td>
+                    <td>42</td>
+                    <td>P@ssWorD</td>
+                </tr>
+                <tr>
+                    <td>Sarah</td>
+                    <td>33</td>
+                    <td>12345</td>
+                </tr>
+                <tr>
+                    <td>Steve</td>
+                    <td>44</td>
+                    <td>Steve!!</td>
+                </tr>
+            </table>
+        </main>
+        <footer>Copyright Nagraggini 2026</footer>
+    </body>
+</html>
