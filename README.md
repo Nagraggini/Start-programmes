@@ -5,3 +5,9 @@ Here are my first attempts, in a few programming languages.
 These are my first Android applications.
 
 You can install them by downloading the APK files from the Apk Files folder.
+
+# Java websites
+
+ElsoJavaWebapp: Classic Servlet + JSP.
+
+demo: First version of my Spring Boot Dynamic website.
