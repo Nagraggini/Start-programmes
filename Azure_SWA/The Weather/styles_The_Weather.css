@@ -1,0 +1,67 @@
+.button {
+  display: inline-block;
+  width: 90px; /* Fix szélesség */
+  padding: 15px 0; /* Csak függőleges padding */
+  font-size: 16px;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: blueviolet;
+}
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.button:hover {
+  background-color: rgb(228, 39, 181); /* Green */
+  color: white;
+}
+.container {
+  /*Mindent középre helyezünk.*/
+  text-align: center;
+  margin-top: 50px;
+}
+
+html,
+body {
+  background: linear-gradient(135deg, #c0d7df 0%, #dbe6f6 50%, #a0b4c8 100%);
+  font-family: Arial, sans-serif;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* A főcím és alcím stílusai */
+h1 {
+  font-size: 36px;
+  color: black;
+  margin-bottom: 5px;
+  text-align: center;
+  text-transform: uppercase;
+  /* Nagybetűs szöveg */
+}
+
+h2 {
+  font-size: 24px;
+  color: black;
+  margin-bottom: 20px;
+  /* Térköz a címek és a gombok között */
+  text-align: center;
+  /*Középre igazítás.*/
+}
+
+p {
+  font-size: 20px;
+  /* A betűméret */
+  color: black;
+  line-height: 0, 8;
+  /* A sorok közötti távolság */
+  width: 300px;
+  /* A szélesség */
+  height: auto;
+  /* Automatikus magasság */
+  margin-bottom: 20px;
+  /* Térköz a címek és a gombok között */
+}

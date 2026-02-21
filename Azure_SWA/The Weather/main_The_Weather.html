@@ -1,0 +1,50 @@
+<!--Ctrl+F5-el refresh-->
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles_The_Weather.css"" />
+
+    <!--A defer szó azért kell, hogy a script csak akkor fusson le, amikor a DOM már betöltődött, 
+    különben nem találja meg az elemeket, ezért kapsz ilyen hibát.
+    -->
+    <script src="main_The_Weather.js" defer></script>
+    <link
+      rel="website icon"
+      type="webp"
+      href="../../../../../Assets/Icons/website_icon.webp"
+    />
+
+    <title>The Weather</title>
+  </head>
+
+  <body>
+    <h1>The Weather</h1>
+
+    <div class="container">
+      <!--This is hosted on an Azure Storage Account!-->
+      <h3>
+        The weather in Budapest at the moment is
+        <span id="Budapest_weather"></span>
+      </h3>
+
+      <h3>
+        The weather in London at the moment is
+        <span id="London_weather"></span>
+      </h3>
+
+      <h3>
+        The weather in Tokyo at the moment is
+        <span id="Tokyo_weather"></span>
+      </h3>
+      <div id="btn" class="button">
+        <a href="https://nagraggini.github.io/Project-showcase/index.html"
+          >Back</a
+        >
+      </div>
+    </div>
+  </body>
+</html>
