@@ -57,10 +57,12 @@ public class JackieFeladatok {
         // HashMap rendezése.
         Map<Integer, Integer> rendezettStat = new TreeMap<>(gyozelmek); // import java.util.*;
 
+        System.out.println("5. feladat: ");
+
         // foreach, bővített for ciklus
         for (int i : rendezettStat.keySet()) {
             // Minta: 70-es évek: 21 megnyert verseny
-            System.out.println(i + "-es/-as évek: " + rendezettStat.get(i) + " megnyert verseny");
+            System.out.println("\t" + i + "-es/-as évek: " + rendezettStat.get(i) + " megnyert verseny");
         }
     }
 

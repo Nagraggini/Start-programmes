@@ -106,7 +106,7 @@ public class JackieFajlkezeles {
             System.out.println(e.getMessage());
         }
 
-        System.out.println("Kész a " + fajlnev + " fájl.");
+        System.out.println("6. feladat: " + fajlnev);
         return lista;
     }
 
