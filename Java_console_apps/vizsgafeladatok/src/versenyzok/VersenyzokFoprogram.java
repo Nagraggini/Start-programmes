@@ -2,6 +2,7 @@ package versenyzok;
 
 import java.util.ArrayList;
 
+//Feladatok:
 // https://infojegyzet.hu/vizsgafeladatok/okj-programozas/szoftverfejleszto-210209/
 
 public class VersenyzokFoprogram {
