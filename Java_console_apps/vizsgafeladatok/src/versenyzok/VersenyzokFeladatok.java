@@ -1,6 +1,9 @@
 package versenyzok;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 
 public class VersenyzokFeladatok {
@@ -34,36 +37,21 @@ public class VersenyzokFeladatok {
         // Ide mentjük el a leszűrt listát.
         ArrayList<Versenyzok> tizenkilencedikSzazadiPilotak = new ArrayList<>();
 
-        for (Versenyzok versenyzok : lista) {
-
-            String szulDatum = versenyzok.getSzuletesiDatuma();
-
-            int szulEv = Integer.parseInt(szulDatum.substring(0, 4));
-            int szulHonap = Integer.parseInt(szulDatum.substring(5, 7));
-            int szulNap = Integer.parseInt(szulDatum.substring(8, 10));
-
-            if (szulEv < 1901) {
-                tizenkilencedikSzazadiPilotak.add(versenyzok);
+           // 5.feladat
+        System.out.println("5.feladat: ");
+        SimpleDateFormat datum = new SimpleDateFormat("Y.m.d");
+        Date date;
+        try {
+            for (Versenyzok egyVersenyzo : lista) {
+                date = datum.parse(egyVersenyzo.getSzuletesiDatuma());
+                if (date.before(datum.parse("1901.01.01"))) {
+                    System.out.println("\t"+egyVersenyzo.getPilotaNeve() + " (" + egyVersenyzo.getSzuletesiDatuma() + ")");
+                }
             }
+        } catch (ParseException ex) {
+            // Logger.getLogger(Versenyzok.class.getName()).log(Level.SEVERE, null, ex);
         }
-        nevEsSzuletesiIdoKiiratasa(tizenkilencedikSzazadiPilotak);
 
-    }
-
-    public void nevEsSzuletesiIdoKiiratasa(ArrayList<Versenyzok> lista) {
-
-        System.out.println("5. feladat: ");
-        // Kiíratás
-        for (Versenyzok versenyzok : lista) {
-            String szulDatum = versenyzok.getSzuletesiDatuma();
-
-            int szulEv = Integer.parseInt(szulDatum.substring(0, 4));
-            int szulHonap = Integer.parseInt(szulDatum.substring(5, 7));
-            int szulNap = Integer.parseInt(szulDatum.substring(8, 10));
-
-            System.out.println(
-                    "\t" + versenyzok.getPilotaNeve() + " (" + szulEv + ". " + szulHonap + ". " + szulNap + ".)");
-        }
     }
 
     /*
