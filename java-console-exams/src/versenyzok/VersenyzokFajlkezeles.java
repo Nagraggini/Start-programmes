@@ -9,11 +9,13 @@ public class VersenyzokFajlkezeles {
 
     public ArrayList<Versenyzok> fajlBeolvasas(ArrayList<Versenyzok> lista, String fajlnev) {
 
+        // A fájlnak a projekt gyökér könyvtárában kell lennie.
         File f = new File(fajlnev);
 
         // Lecsekkoljuk, hogy létezik-e a fájl.
         if (!f.exists()) {
             System.out.println("Nem létezik a fájl!");
+            System.out.println("Itt keresem: " + System.getProperty("user.dir"));
         }
 
         // try with resources

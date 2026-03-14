@@ -21,9 +21,17 @@ public class OperatorokFeladatok {
 
     public static void main(String[] args) {
 
-        try {
+        Path path = Path.of("kifejezesek.txt");
 
-            List<String> sorok = Files.readAllLines(Path.of("kifejezesek.txt"), StandardCharsets.UTF_8);
+        // Ellenőrzés és beolvasás egyben
+        if (!Files.exists(path)) {
+            System.out.println("Nem létezik a fájl!");
+            System.out.println("Itt keresem: " + System.getProperty("user.dir"));
+            return; // Ha nincs fájl, ne is menjünk tovább a try-ra
+        }
+
+        try {
+            List<String> sorok = Files.readAllLines(path, StandardCharsets.UTF_8);
 
             // Itt mehetünk 0-túl, mert nincs oszlopnév.
             for (int i = 0; i < sorok.size(); i++) {
@@ -145,38 +153,38 @@ public class OperatorokFeladatok {
 
             switch (operator) {
 
-            case "+":
-                return String.valueOf(a + b);
+                case "+":
+                    return String.valueOf(a + b);
 
-            case "-":
-                return String.valueOf(a - b);
+                case "-":
+                    return String.valueOf(a - b);
 
-            case "*":
-                return String.valueOf(a * b);
+                case "*":
+                    return String.valueOf(a * b);
 
-            case "/": // valós osztás, az egyiknek double-nek kell lennie, hogy double legyen az
-                      // eredménye
-                      // 15 db tizedesjegyig
-                      // pl.: 3 / 7 = 0.428571428571429
-                if (b == 0) {
-                    return "Egyéb hiba!";
-                }
-                return String.format("%.15f", (double) a / b);
+                case "/": // valós osztás, az egyiknek double-nek kell lennie, hogy double legyen az
+                          // eredménye
+                          // 15 db tizedesjegyig
+                          // pl.: 3 / 7 = 0.428571428571429
+                    if (b == 0) {
+                        return "Egyéb hiba!";
+                    }
+                    return String.format("%.15f", (double) a / b);
 
-            case "div": // egész osztás, egész lesz az eredmény
-                if (b == 0) {
-                    return "Egyéb hiba!";
-                }
-                return String.valueOf(a / b);
+                case "div": // egész osztás, egész lesz az eredmény
+                    if (b == 0) {
+                        return "Egyéb hiba!";
+                    }
+                    return String.valueOf(a / b);
 
-            case "mod": // maradékos osztás
-                if (b == 0) {
-                    return "Egyéb hiba!";
-                }
-                return String.valueOf(a % b);
+                case "mod": // maradékos osztás
+                    if (b == 0) {
+                        return "Egyéb hiba!";
+                    }
+                    return String.valueOf(a % b);
 
-            default:
-                return "Hibás operátor!";
+                default:
+                    return "Hibás operátor!";
             }
 
         } catch (Exception e) {

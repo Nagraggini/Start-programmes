@@ -25,7 +25,7 @@ public class VizibicikliKolcsonzoFajlkezeles {
     // Az elso sorban az oszlopnevek vannak.
     public void fajlBeolvasasa(String fajlnev, ArrayList<Kolcsonzes> lista) {
 
-        // A fájlnak a projekt gyökés könyvtárában kell lennie.
+        // A fájlnak a projekt gyökér könyvtárában kell lennie.
         File f = new File(fajlnev);
 
         if (!f.exists()) {

@@ -29,7 +29,7 @@ These are my first Android projects.
 - **csharp-console** - C# console applications and logic.
 - **java-backend** - Server-side Java (Spring Boot, APIs).
 - **java-console** - Basic Java programs and exercises.
-- **java-console-exams** - Solutions for various Java exams.
+- **java-console-exams** - Solutions for various Java exams. [Source](https://infojegyzet.hu/vizsgafeladatok/)
 - **java-gui** - Java desktop applications (Swing/JavaFX).
 - **python-console** - Python scripts and automation tools.
 - **static-websites** - HTML, CSS, and JavaScript website templates.

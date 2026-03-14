@@ -18,7 +18,8 @@ import java.util.stream.Collectors;
 public class HaladoJavaOsszefoglalo {
 
         public static void main(String[] args) {
-
+                HaladoJavaOsszefoglalo h = new HaladoJavaOsszefoglalo();
+                h.StreamFunkciok();
         }
 
         public void FajlBeolvasas() {
@@ -70,8 +71,9 @@ public class HaladoJavaOsszefoglalo {
                 List<Integer> szamok = Arrays.asList(5, 10, 15, 20, 25, 10, 5);
 
                 // 1️⃣ Stream létrehozása a listából
-                szamok.stream(); // sima stream, sorrendben feldolgozható
-                szamok.parallelStream(); // párhuzamos feldolgozás
+                szamok.stream(); // Adatfolyammá alakítjuk a számoka.
+                szamok.parallelStream(); // A feladatot több részre bontja és párhuzamosan a gép több prociján egyzserre
+                                         // csinálja.
 
                 // 2️⃣ Szűrés (Filtering)
                 List<Integer> nagyobbMint10 = szamok.stream().filter(x -> x > 10) // csak a 10-nél nagyobb számokat
@@ -202,6 +204,12 @@ public class HaladoJavaOsszefoglalo {
                 for (Map.Entry<String, Integer> elem : gyumolcsok.entrySet()) { // kulcs és érték egyszerre elérhető
                         System.out.println(elem.getKey() + " -> " + elem.getValue());
                 }
+
+                // 🔟/1️⃣ Iterálás kulcs-érték párokon foreach-el
+
+                gyumolcsok.forEach((kulcs, ertek) -> {
+                        System.out.println(kulcs + " " + ertek);
+                });
 
                 // 1️⃣1️⃣ getOrDefault használata
                 int narancs = gyumolcsok.getOrDefault("narancs", 0); // ha nincs ilyen kulcs, akkor alapértelmezett
