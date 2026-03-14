@@ -7,7 +7,10 @@ import java.nio.file.Paths;
 import java.text.ParseException;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 // https://infojegyzet.hu/vizsgafeladatok/okj-programozas/szoftverfejleszto-210209/
 
@@ -22,7 +25,8 @@ public class VersenyzokFeladatok2 {
 
         try {
 
-            List<String> sorok = Files.readAllLines(Paths.get("pilotak.csv"), StandardCharsets.UTF_8);
+            List<String> sorok = Files.readAllLines(Paths.get("java-console-exams/pilotak.csv"),
+                    StandardCharsets.UTF_8);
 
             for (int i = 1; i < sorok.size(); i++) {
                 emberek.add(new Versenyzok2(sorok.get(i)));

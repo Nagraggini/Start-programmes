@@ -14,7 +14,7 @@ public class VizibicikliKolcsonzesFoprogram {
         FeladatokBicikli feladatok = new FeladatokBicikli();
         try {
             // fajlBeolvasas.tesztAdatFeltoltese(lista);
-            fajlBeolvasas.fajlBeolvasasa("kolcsonzesek.txt", lista);
+            fajlBeolvasas.fajlBeolvasasa("java-console-exams/kolcsonzesek.txt", lista);
             // feladatok.kiListazas(lista);
             System.out.println("5. feladat: Napi kölcsönzések száma: " + lista.size());
 

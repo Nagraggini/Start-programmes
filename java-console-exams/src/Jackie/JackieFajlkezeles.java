@@ -20,6 +20,7 @@ public class JackieFajlkezeles {
         // Létezik-e a fájl.
         if (!f.exists()) {
             System.out.println("Nem létezik a fájl.");
+            System.out.println("Itt keresem: " + System.getProperty("user.dir"));
         }
 
         // try with resources

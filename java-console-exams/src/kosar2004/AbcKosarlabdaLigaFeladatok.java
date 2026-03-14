@@ -20,8 +20,18 @@ public class AbcKosarlabdaLigaFeladatok {
         // 2. feladat:
         // Van amikor ez a jó: StandardCharsets.UTF_8
         // Van amikor ez a jó:Charset.forName("windows-1250")
+
+        Path path = Path.of("java-console-exams/eredmenyek.csv");
+
+        // Ellenőrzés és beolvasás egyben
+        if (!Files.exists(path)) {
+            System.out.println("Nem létezik a fájl!");
+            System.out.println("Itt keresem: " + System.getProperty("user.dir"));
+            return; // Ha nincs fájl, ne is menjünk tovább a try-ra
+        }
+
         try {
-            List<String> sorok = Files.readAllLines(Path.of("eredmenyek.csv"), Charset.forName("windows-1250"));
+            List<String> sorok = Files.readAllLines(path, Charset.forName("windows-1250"));
 
             // 1-től megyünk, mert van oszlopnév is.
             for (int i = 1; i < sorok.size(); i++) {
@@ -63,12 +73,6 @@ public class AbcKosarlabdaLigaFeladatok {
 
         // A három operandust zárójelbe kell rakni. Ternális operátor.
         System.out.println("4. feladat: Volt-e döntetlen? " + ((int) dontetlen == 0 ? "nem" : "igen"));
-
-        KosarligaGyakorlas gyakorlas = new KosarligaGyakorlas();
-        // gyakorlas.kiiratasHashMap(hmap);
-        // gyakorlas.kiiratasArrayList(lista);
-        gyakorlas.melyikVarosbanHanyMeccsVolt(hmap);
-        
 
     }
 

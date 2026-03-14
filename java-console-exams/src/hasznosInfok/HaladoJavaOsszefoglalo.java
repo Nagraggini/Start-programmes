@@ -15,6 +15,18 @@ import java.util.Optional;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+
+/*
+    * Mit használj a vizsgán?
+    * Beolvasás: Mindig olvass be egy ArrayList-be (ez az alap).
+    * 
+    * Keresés/Szűrés/Statisztika: Használd a listát és a Stream API-t.
+    * 
+    * Egyedi kulcsos keresés: Csak akkor készíts HashMap-et, ha a feladat
+    * kifejezetten kéri, hogy egy azonosító alapján keress ki valamit
+    * villámgyorsan.
+    */
+   
 public class HaladoJavaOsszefoglalo {
 
         public static void main(String[] args) {

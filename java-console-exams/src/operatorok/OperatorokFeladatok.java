@@ -21,7 +21,7 @@ public class OperatorokFeladatok {
 
     public static void main(String[] args) {
 
-        Path path = Path.of("kifejezesek.txt");
+        Path path = Path.of("java-console-exams/kifejezesek.txt");
 
         // Ellenőrzés és beolvasás egyben
         if (!Files.exists(path)) {

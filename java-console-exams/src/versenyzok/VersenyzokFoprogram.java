@@ -12,7 +12,7 @@ public class VersenyzokFoprogram {
         ArrayList<Versenyzok> lista = new ArrayList<>();
 
         VersenyzokFajlkezeles fajlkezeles = new VersenyzokFajlkezeles();
-        fajlkezeles.fajlBeolvasas(lista, "pilotak.csv");
+        fajlkezeles.fajlBeolvasas(lista, "java-console-exams/pilotak.csv");
 
         VersenyzokFeladatok feladatok = new VersenyzokFeladatok();
 
