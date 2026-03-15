@@ -6,8 +6,11 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 import static java.util.stream.Collectors.groupingBy;
 
 public class KosarligaGyakorlas {
@@ -24,7 +27,15 @@ public class KosarligaGyakorlas {
         Fajlbeolvasasa("java-console-exams/eredmenyek.csv");
 
         System.out.println("Sorok száma: " + lista.size());
-        nagyFolennyelNyertek(lista, 3);
+        // nagyFolennyelNyertek(lista, 3);
+        // hazaiGyozelmek(lista);
+        // bekertCsapatnevAlapjanSzur(lista, "Real Madrid");
+        // hazaiCsapatnevek(lista);
+        // idegenCsapatnevek(lista);
+        // hazaCsapatSzaznalTobbPontotErtEl(lista);
+        // idegenCsapatBekertErteknelTobbetSzerzett(lista, 90);
+        hazaiCsapatKevesebbetDobottMintAMasik(lista);
+        bekertertekPontFelettiMeccsek(lista, 110);
     }
 
     public static void Fajlbeolvasasa(String fajlneve) {
@@ -155,21 +166,155 @@ public class KosarligaGyakorlas {
 
     }
 
+    public static void hazaiGyozelmek(ArrayList<AbcKosarlabdaLiga> lista) {
+
+        // Csoportosítás és számolás.
+        Map<String, Long> hazaiCsapatSzerintiCsoportositas = lista.stream() // Adatfolyammá alakítás.
+                .filter(x -> (x.getHazaiPont() > x.getIdegenPont())) // Szűrési feltétel.
+                // Összegyűjtés (típus, darabszám)
+                .collect(Collectors.groupingBy(AbcKosarlabdaLiga::getHazai, Collectors.counting()));
+
+        System.out.println("A hazai csapatok ennyi meccsen nyertek, csapatok szerint csoportosítva: ");
+
+        // 2. A Map rendezése és kiíratása.
+        hazaiCsapatSzerintiCsoportositas.entrySet().stream()
+                // Rendezés az érték (győzelmek száma) szerint fordított sorrendben, hogy a
+                // csökkenő legyen.
+                .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
+                // Kiíratás.
+                .forEach(entry -> System.out.println(entry.getKey() + " " + entry.getValue()));
+
+    }
+
+    public static void bekertCsapatnevAlapjanSzur(ArrayList<AbcKosarlabdaLiga> lista,
+            String csapatnev) {
+
+        System.out.println(
+                "Ki szűrjük az összes meccset, ahol a bekért csapat játszott hazai- vagy idegenként, külön-külön mecs darab számra.");
+
+        long hazaiDB = lista.stream().filter(x -> x.getHazai().equals(csapatnev)).count();
+        long idegenDB = lista.stream().filter(x -> x.getIdegen().equals(csapatnev)).count();
+
+        System.out.println(csapatnev + " hazai csapatként " + hazaiDB + " db meccset játszott, idegenként, pedig "
+                + idegenDB + "-szer/szor.");
+    }
+
+    public static void hazaiCsapatnevek(ArrayList<AbcKosarlabdaLiga> lista) {
+
+        System.out.println("Itt a lista az összes hazai csapat nevével, ismétlődés nélkül:");
+
+        lista.stream().map(x -> x.getHazai()).distinct().forEach(x -> System.out.println(x));
+
+    }
+
+    public static void idegenCsapatnevek(ArrayList<AbcKosarlabdaLiga> lista) {
+
+        System.out.println("Az összes idegen csapat neve, ismétlődés nélkül:");
+
+        lista.stream().map(x -> x.getIdegen()).distinct().forEach(x -> System.out.println(x));
+    }
+
+    public static void hazaCsapatSzaznalTobbPontotErtEl(ArrayList<AbcKosarlabdaLiga> lista) {
+
+        System.out.println("Ennyi darab meccsen dobott a hazai csapat 100 pontnál többet: " + lista.stream()
+                .filter(x -> x.getHazaiPont() > 100).count());
+    }
+
+    public static void idegenCsapatBekertErteknelTobbetSzerzett(ArrayList<AbcKosarlabdaLiga> lista,
+            int ennelTobbPontotSzerzett) {
+
+        long meccsDB = lista.stream().filter(x -> (int) x.getIdegenPont() > ennelTobbPontotSzerzett).count();
+        System.out.println(
+                meccsDB + " db meccsen dobott az idegen csapat többet, mint " + ennelTobbPontotSzerzett + " pont.");
+    }
+
+    public static void hazaiCsapatKevesebbetDobottMintAMasik(ArrayList<AbcKosarlabdaLiga> lista) {
+
+        System.out.println("Ezeken meccseken dobott a hazai csapat kevesebb pontot, mint az ellenfél: ");
+        lista.stream().filter(x -> x.getHazaiPont() < x.getIdegenPont())
+                .forEach(x -> System.out.println(x.getIdopont()));
+
+        System.out.println("Összesen " + lista.stream().filter(x -> x.getHazaiPont() < x.getIdegenPont())
+                .count() + " db.");
+    }
+
+    public static void bekertertekPontFelettiMeccsek(ArrayList<AbcKosarlabdaLiga> lista, int bekertertek) {
+
+        // 1. Szűrés és gyűjtés listába
+        List<AbcKosarlabdaLiga> talalatok = lista.stream()
+                .filter(x -> x.getHazaiPont() > bekertertek || x.getIdegenPont() > bekertertek)
+                .collect(Collectors.toList());
+
+        // 2. Ellenőrzés: Üres-e?
+        if (!talalatok.isEmpty()) {
+            // 3. Ha nem üres, jöhet a kiírás
+            System.out.println(bekertertek + " pont feletti meccsek időpontjai: ");
+            talalatok.forEach(x -> System.out.println("Helyszín: " + x.getHelyszin() + " időpont: " + x.getIdopont()));
+        } else {
+            System.out.println(
+                    "Nincs olyan meccs, amin bármelyik csapat " + bekertertek + " pontnál többet ért volna el.");
+        }
+    }
+
     /*
      * TODO
-     * Könnyű feladatok
+     * Könnyű → Közepes feladatok
+     * 7️⃣ Legnagyobb pontkülönbség
      * 
-     * Hazai győzelmek
-     * Listázd ki az összes meccset, ahol a hazai csapat nyert (hazai_pont >
-     * idegen_pont).
+     * Találd meg azt a meccset ahol a legnagyobb pontkülönbség volt.
      * 
-     * Real Madrid meccsek
-     * Szűrd ki az összes meccset, ahol a Real Madrid játszott hazai vagy idegen
-     * csapatként.
+     * 8️⃣ Legkevesebb pont
      * 
-     * Hazai csapatok nevei
-     * Hozz létre egy egyszerű listát az összes hazai csapat nevével, ismétlődés
-     * nélkül.
+     * Találd meg azt a meccset ahol a legkevesebb pont született összesen.
+     * 
+     * hazai_pont + idegen_pont
+     * 9️⃣ 2010 utáni meccsek
+     * 
+     * Írd ki az összes meccset ahol
+     * 
+     * idopont > 2010
+     * 🔟 200 pont feletti meccsek száma
+     * 
+     * Számold meg hány olyan meccs volt ahol
+     * 
+     * hazai_pont + idegen_pont > 200
+     * Kicsit nehezebb
+     * 11️⃣ Csapatok száma
+     * 
+     * Számold meg hány különböző csapat szerepel az adatbázisban
+     * (hazai + idegen együtt).
+     * 
+     * 12️⃣ Meccsek száma csapatonként
+     * 
+     * Készíts egy Map<String, Long> statisztikát ahol:
+     * 
+     * csapat -> hány meccset játszott
+     * 
+     * (Hazai + idegen együtt.)
+     * 
+     * 13️⃣ Legtöbb pontot szerző csapat hazai pályán
+     * 
+     * Találd meg azt a csapatot amelyik
+     * 
+     * hazai_pont összesen
+     * 
+     * alapján a legtöbb pontot dobta.
+     * 
+     * 14️⃣ Hány különböző helyszín van
+     * 
+     * Számold meg hány különböző:
+     * 
+     * helyszin
+     * 
+     * van az adatbázisban.
+     * 
+     * 15️⃣ Legtöbb meccset játszó csapat
+     * 
+     * Találd meg melyik csapat szerepel a legtöbb meccsen
+     * (hazai + idegen együtt).
+     */
+    /*
+     * 
      * 
      * Közepes feladatok
      * 

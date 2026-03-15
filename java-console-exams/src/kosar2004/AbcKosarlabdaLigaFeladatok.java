@@ -8,6 +8,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class AbcKosarlabdaLigaFeladatok {
     // https://infojegyzet.hu/vizsgafeladatok/okj-programozas/szoftverfejleszto-200526/
@@ -62,8 +63,7 @@ public class AbcKosarlabdaLigaFeladatok {
 
         long realDBIdegen = lista.stream().filter(a -> a.getIdegen().equals("Real Madrid")).count();
 
-        // System.out.println("3. feladat: Real Madrid: Hazai: " + realDBHazai + " ,
-        // Idegen: " + realDBIdegen);
+        System.out.println("3. feladat: Real Madrid: Hazai: " + realDBHazai + ", Idegen: " + realDBIdegen);
 
         // 4. feladat:
         // Megszámoljuk, hogy volt-e döntetlen.
@@ -74,6 +74,50 @@ public class AbcKosarlabdaLigaFeladatok {
         // A három operandust zárójelbe kell rakni. Ternális operátor.
         System.out.println("4. feladat: Volt-e döntetlen? " + ((int) dontetlen == 0 ? "nem" : "igen"));
 
+        // 5. feladat:
+        /*
+         * Határozza meg és írja ki a minta szerint, hogy a barcelonai csapatnak mi a
+         * pontos neve! (Feltételezheti, hogy a csapat neve tartalmazza Barcelona város
+         * nevét,
+         * és a csapat játszott otthon is legalább egy mérkőzést.)
+         */
+
+        String barcelonaiCsapatNeve = lista.stream()
+                .filter(x -> x.getHazai().contains("Barcelona")).map(x -> x.getHazai()).findFirst().get();
+        System.out.println("5. feladat: barcelonai csapat neve: " + barcelonaiCsapatNeve);
+
+        // 6. feladat:
+        /*
+         * Határozza meg és írja ki a minta szerint, hogy 2004. november 21-én mely
+         * csapatok játszottak mérkőzéseket, és milyen eredmény született!
+         */
+        LocalDate datum = LocalDate.of(2004, 11, 21);
+
+        System.out.println("6. feladat:");
+        lista.stream().filter(x -> x.getIdopont().isEqual(
+                datum)).forEach(x -> System.out.println(
+                        "\t" + x.getHazai() + "-" + x.getIdegen() + " (" + x.getHazaiPont() + ":" + x.getIdegenPont()
+                                + ")"));
+
+        // 7. feladat
+        /*
+         * Határozza meg és írja ki a minta szerint, hogy melyek azok a stadionok,
+         * amelyek 20-nál több alkalommal voltak kosárlabdamérkőzések helyszínei! A
+         * stadionok neve mögött jelenjen meg a mérkőzések száma is! A feltételnek
+         * megfelelő stadionok tetszőleges sorrendben jelenhetnek meg.
+         */
+
+        System.out.println("7. feladat: ");
+        lista.stream() // Az első stream az eredeti adatokat dolgozza fel.
+                // Ez a "lelke" az egésznek. Egy Map<String, Long> struktúrát hoz létre, ahol a
+                // kulcs a helyszín, az érték pedig az adott helyszínhez tartozó elemek száma.
+                .collect(Collectors.groupingBy(AbcKosarlabdaLiga::getHelyszin, Collectors.counting()))
+                // Mivel a Map-en nem tudunk közvetlenül streamelni, le kell kérnünk a
+                // kulcs-érték párok halmazát (entrySet), majd abból indítunk egy új streamet.
+                .entrySet()
+                .stream() // A második stream, már a statisztikát (a Map-et) dolgozza fel.
+                .filter(e -> e.getValue() > 20) // Feltétel.
+                .forEach(e -> System.out.println("\t" + e.getKey() + " : " + e.getValue())); // Kiíratás.
     }
 
 }
