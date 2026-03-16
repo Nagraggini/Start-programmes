@@ -1,15 +1,17 @@
-import java.util.Scanner;
-import java.util.Random;
+package src.stone_paper_sissor_game;
 import java.util.InputMismatchException;
+import java.util.Random;
+import java.util.Scanner;
 
 /* Újítás egy-egy változóban tároljuk hány kört nyert a játékos és hányat a gép, az állást pedig minden kör végén kiírjuk!*/
-    
-public class Main {
 
-    public static int result_user=0; //Felhasznalo allasa
-    public static int  result_npc=0; //Gep allasa
-    public static void main(String[] args) {
-        
+public class stone_paper_scissor_3 {
+
+    public static int result_user = 0; // Felhasznalo allasa
+    public static int result_npc = 0; // Gep allasa
+
+    public static void stone_paper_scissor_3() {
+
         Scanner scanner = new Scanner(System.in);
         Random rand = new Random();
 
@@ -43,56 +45,47 @@ public class Main {
             if (number == randomNumber) {
                 System.out.println("Döntetlen!");
             } else if (number == 0 && randomNumber == 1 ||
-                       number == 1 && randomNumber == 2 ||
-                       number == 2 && randomNumber == 0) {
+                    number == 1 && randomNumber == 2 ||
+                    number == 2 && randomNumber == 0) {
                 System.out.println("A gép nyert!");
-                result_npc=result_npc+1;
+                result_npc = result_npc + 1;
             } else {
                 System.out.println("Te nyertél!");
-                result_user=result_user+1;
+                result_user = result_user + 1;
             }
-            System.out.println("\n Eddig ennyit nyertél:"+result_user);
-            System.out.println("\n Eddig ennyit nyert a gép:"+result_npc);
-            
+            System.out.println("\n Eddig ennyit nyertél:" + result_user);
+            System.out.println("\n Eddig ennyit nyert a gép:" + result_npc);
+
             // Megkérdezzük, hogy a játékos újra akar-e játszani
             System.out.println("\nSzeretnél újra játszani? (i/n): ");
-            
-            //Bekérjük a választ a felhasználótól.
+
+            // Bekérjük a választ a felhasználótól.
             String response = scanner.next();
 
             if (response.equalsIgnoreCase("i")) {
-                
+
                 // Játék folytatása.
                 playAgain = true;
                 System.out.println("Köszönöm a játékot!");
-                    
-                } 
-            else 
-                {    //Nem szeretné folytatni a játékot.
-                    playAgain = true;
-                    
-                    System.out.println("Tuti?");
-                    response = scanner.next();
-                    
-                    if (response.equalsIgnoreCase("i")){
-                        playAgain = false;
-                        System.out.println("Köszönöm a játékot!");
-                    }
-                    else
-                    {
-                        playAgain = true;
-                        System.out.println("\n Folytassuk! :) ");
-                    }
-                    
-                
-                }
-                //Biztosan nem akar újra játszani?
-                //Ha igen, akkor kilépünk a ciklusból
-                
-                
 
-                
-             
+            } else { // Nem szeretné folytatni a játékot.
+                playAgain = true;
+
+                System.out.println("Tuti?");
+                response = scanner.next();
+
+                if (response.equalsIgnoreCase("i")) {
+                    playAgain = false;
+                    System.out.println("Köszönöm a játékot!");
+                } else {
+                    playAgain = true;
+                    System.out.println("\n Folytassuk! :) ");
+                }
+
+            }
+            // Biztosan nem akar újra játszani?
+            // Ha igen, akkor kilépünk a ciklusból
+
         }
 
         scanner.close(); // Scanner lezárása

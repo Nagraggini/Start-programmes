@@ -2,7 +2,7 @@ package alapokGyakorlasa;
 
 public class Matekfuggvenyek {
 
-	public static void main(String[] args) {
+	public static void matekFuggvenyek() {
 
 		System.out
 				.println("ceil: Visszaadja a legkisebb egész számot (double formában), ami nem kisebb, mint az érték.\n"

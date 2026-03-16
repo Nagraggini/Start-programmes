@@ -8,9 +8,7 @@ public class Karakterfuggvenyek {
 
 	public static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-	public static void main(String[] args) throws IOException {
-		SztingfuggvenyGyakorlas();
-	}
+	
 
 	public static void KarakterfuggvenyEsStringfuggvenyGyakorlas() throws IOException {
 

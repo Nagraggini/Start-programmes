@@ -5,7 +5,7 @@ import java.util.Date;
 
 public class Datumhasznalata {
 
-	public static void main(String[] args) {
+	public static void datum() {
 		
 		//Új megoldás:
 		Date most = new Date();

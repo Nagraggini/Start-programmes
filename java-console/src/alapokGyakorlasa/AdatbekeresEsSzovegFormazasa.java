@@ -7,10 +7,7 @@ import java.util.Scanner;
 
 public class AdatbekeresEsSzovegFormazasa {
 
-	public static void main(String[] args) throws NumberFormatException, IOException {
 	
-	}
-
 	public static void Formazokarakterek() {
 		int a = 5;
 		double b = 2.345;

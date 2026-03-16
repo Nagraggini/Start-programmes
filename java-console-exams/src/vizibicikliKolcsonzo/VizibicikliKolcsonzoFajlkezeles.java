@@ -31,8 +31,7 @@ public class VizibicikliKolcsonzoFajlkezeles {
         if (!f.exists()) {
             System.out.println("Nem létezik a fájl.");
             System.out.println("Itt keresem: " + System.getProperty("user.dir"));
-            return; // Így nem is megy tovább a program, ha nem létezik a fájl.
-            // TODO: Kérdés, hogy akkor létrehozzon-e egy újat.
+            return; // Így nem is megy tovább a program, ha nem létezik a fájl.         
         }
 
         try (BufferedReader br = new BufferedReader(new FileReader(f))) {

@@ -7,10 +7,7 @@ import java.io.InputStreamReader;
 public class MatematikaiFuggvenyek {
 	public static BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 
-	public static void main(String[] args) throws IOException {
-//Math.abs, min, max, sqrl, pow,round, floor, ceil, Pi, E
-		HomersekletElteres() ;
-	}
+	
 
 	public static void HomersekletElteres() throws IOException {
 

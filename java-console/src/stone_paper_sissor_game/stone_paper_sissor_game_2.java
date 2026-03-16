@@ -1,9 +1,12 @@
-import java.util.Scanner;
-import java.util.Random;
+package src.stone_paper_sissor_game;
 import java.util.InputMismatchException;
+import java.util.Random;
+import java.util.Scanner;
 
-public class Main {
-    public static void main(String[] args) {
+public class stone_paper_sissor_game_2
+{
+    
+    public static void stone_paper_sissor_game_2() {
         Scanner scanner = new Scanner(System.in);
         Random rand = new Random();
         

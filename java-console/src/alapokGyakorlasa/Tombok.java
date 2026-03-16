@@ -6,7 +6,7 @@ import java.io.InputStreamReader;
 
 public class Tombok {
 
-	public static void main(String[] args) throws NumberFormatException, IOException {
+	public static void tombok() throws NumberFormatException, IOException {
 		/*
 		 * Írj egy Java programot, amely: Bekéri 5 dolgozat pontszámát (0–100 között).
 		 * Az adatokat tömbben tárolja. * Kiírja a pontszámokat egymás mellé, szóközzel
@@ -30,7 +30,7 @@ public class Tombok {
 				legnagyobbPontszam = dolgozatPontszama[i];
 				legkisebbPontszam = dolgozatPontszama[i];
 			} else {
-				//Ternális if:
+				// Ternális if:
 				legnagyobbPontszam = (legnagyobbPontszam > dolgozatPontszama[i]) ? legnagyobbPontszam
 						: dolgozatPontszama[i];
 
@@ -40,8 +40,8 @@ public class Tombok {
 		}
 
 		System.out.println("Dolgozatok pontszámai: ");
-		
-		//For-each
+
+		// For-each
 		for (int i : dolgozatPontszama) {
 			System.out.print(i + " ");
 

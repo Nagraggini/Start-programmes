@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "KosarligaGyakorlas",
+            "request": "launch",
+            "mainClass": "src.kosar2004Gyakorlas.KosarligaGyakorlas",
+            "projectName": "JavaConsole-Projects"
+        },
+        {
+            "type": "java",
             "name": "BalkezesekFeladatok",
             "request": "launch",
             "mainClass": "balkezesek.BalkezesekFeladatok",

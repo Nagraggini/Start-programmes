@@ -7,9 +7,6 @@ import java.util.Scanner;
 
 public class AlapokGyakorlasa2 {
 
-	public static void main(String[] args) throws NumberFormatException, IOException {
-
-	}
 
 	public static void Formazokarakterek() {
 		int a = 5;

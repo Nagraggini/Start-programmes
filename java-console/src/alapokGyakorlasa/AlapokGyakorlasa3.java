@@ -2,10 +2,7 @@ package alapokGyakorlasa;
 
 public class AlapokGyakorlasa3 {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
+	
 	public static void TobbiFeladat() {
 		/*
 		 * Kérj be egy évszámot, és döntsd el, hogy szökőév-e!

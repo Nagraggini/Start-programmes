@@ -316,6 +316,5 @@ public class HaladoJavaOsszefoglalo {
                 lista.forEach(l -> System.out.println(l.getBal() + " " + l.getOperator() + " " + l.getJobb()));
         }
 
-        // TODO: printf leírás is kéne
-
+      
 }

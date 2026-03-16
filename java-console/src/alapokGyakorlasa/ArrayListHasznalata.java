@@ -4,15 +4,15 @@ import java.util.ArrayList;
 
 public class ArrayListHasznalata {
 
-    public static void main(String[] args) {
+    public static void arrayHasznalata() {
         String[] simpleArray0 = new String[2];
         simpleArray0[0] = "alma";
         simpleArray0[1] = "körte";
-        
-        //A tömb statikus, ha törölsz belőle egy elemet, akkor sem megy össze.
+
+        // A tömb statikus, ha törölsz belőle egy elemet, akkor sem megy össze.
         ArrayList<String> list = new ArrayList<>();
-        
-        //Az array tudja változtatni a méretét.
+
+        // Az array tudja változtatni a méretét.
         list.add("alma");
         list.add("körte");
 
