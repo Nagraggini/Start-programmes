@@ -42,6 +42,7 @@ public class BalkezesekFeladatok {
             System.getLogger(BalkezesekFeladatok.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
         }
 
+        // 3. feladat
         System.out.println("3. feladat: " + lista.size());
 
         /*
@@ -52,6 +53,7 @@ public class BalkezesekFeladatok {
          * képernyőre!
          */
 
+        // 4. feladat
         System.out.println("4. feladat: ");
         LocalDate hatarido1 = LocalDate.of(1999, 10, 1);
         LocalDate hatarido2 = LocalDate.of(1999, 10, 31);
@@ -72,6 +74,7 @@ public class BalkezesekFeladatok {
          * egész számra.
          */
 
+        // 5. feladat
         menu();
 
         /*
@@ -84,7 +87,11 @@ public class BalkezesekFeladatok {
          * tudta
          * megoldani, akkor dolgozzon az 1995-ös évvel!
          */
+
+        // 6. feladat
         System.out.println("6. feladat: \n");
+
+        // TODO
     }
 
     // 5. feladat.
@@ -114,8 +121,6 @@ public class BalkezesekFeladatok {
                 }
             }
         } catch (IOException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
         }
 
     }
