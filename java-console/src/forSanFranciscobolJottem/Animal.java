@@ -1,4 +1,4 @@
-package for_SanFranciscobolJottem;
+package src.forSanFranciscobolJottem;
 
 //Minden objektum, amit létrehozol automatikusan kiterjeszto az Object osztályt, ezért van már alapjáratom egy rakás metódusa az osztályodnak.
 abstract class Animal {

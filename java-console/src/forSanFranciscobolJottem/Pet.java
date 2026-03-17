@@ -1,4 +1,4 @@
-package for_SanFranciscobolJottem;
+package src.forSanFranciscobolJottem;
 
 //Ez egy nyilvántartás, hogy a háziállatoknak mi a képességük.
 abstract interface Pet {

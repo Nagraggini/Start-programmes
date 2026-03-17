@@ -6,12 +6,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.stream.Collectors;
-import static java.util.stream.Collectors.groupingBy;
 
 public class GyakorlasSteamAPIKezdoSzint {
 
@@ -22,21 +19,19 @@ public class GyakorlasSteamAPIKezdoSzint {
     public static ArrayList<AbcKosarlabdaLiga> lista = new ArrayList<>();
     public static HashMap<Integer, AbcKosarlabdaLiga> hmap = new HashMap<>();
 
-    public static void main(String[] args) {
-
-        Fajlbeolvasasa("java-console-intermediate/eredmenyek.csv");
-
-        System.out.println("Sorok száma: " + lista.size());
-        // nagyFolennyelNyertek(lista, 3);
-        // hazaiGyozelmek(lista);
-        // bekertCsapatnevAlapjanSzur(lista, "Real Madrid");
-        // hazaiCsapatnevek(lista);
-        // idegenCsapatnevek(lista);
-        // hazaCsapatSzaznalTobbPontotErtEl(lista);
-        // idegenCsapatBekertErteknelTobbetSzerzett(lista, 90);
-        hazaiCsapatKevesebbetDobottMintAMasik(lista);
-        bekertertekPontFelettiMeccsek(lista, 110);
-    }
+    /*
+     * public static void main(String[] args) {
+     * 
+     * Fajlbeolvasasa("java-console-exams/eredmenyek.csv");
+     * 
+     * System.out.println("Sorok száma: " + lista.size()); //
+     * nagyFolennyelNyertek(lista, 3); // hazaiGyozelmek(lista); //
+     * bekertCsapatnevAlapjanSzur(lista, "Real Madrid"); // hazaiCsapatnevek(lista);
+     * // idegenCsapatnevek(lista); // hazaCsapatSzaznalTobbPontotErtEl(lista); //
+     * idegenCsapatBekertErteknelTobbetSzerzett(lista, 90);
+     * hazaiCsapatKevesebbetDobottMintAMasik(lista);
+     * bekertertekPontFelettiMeccsek(lista, 110); }
+     */
 
     public static void Fajlbeolvasasa(String fajlneve) {
 
@@ -91,28 +86,6 @@ public class GyakorlasSteamAPIKezdoSzint {
 
     }
 
-    public static void melyikVarosbanHanyMeccsVolt(ArrayList<AbcKosarlabdaLiga> lista) {
-
-        // Első megoldás.
-        System.out.println("\nMegoldás ArrayList+HashMap-el.");
-        HashMap<String, Integer> stat = new HashMap<>();
-
-        // Megszámoljuk, hogy melyik városban hányszor volt meccs.
-        for (AbcKosarlabdaLiga a : lista) {
-            stat.put(a.getHelyszin(), stat.getOrDefault(a.getHelyszin(), 0) + 1);
-        }
-
-        stat.forEach((kulcs, ertek) -> System.out.println("Kulcs: " + kulcs + " érték: " + ertek));
-
-        // Második szebbik megoldás stream apival.
-        lista.stream().collect(groupingBy(AbcKosarlabdaLiga::getHelyszin, java.util.stream.Collectors // Csoportosítunk
-                                                                                                      // helyszín
-                                                                                                      // alapján.
-                .counting())) // Megszámoljuk.
-                .forEach((varos, db) -> System.out.println(varos + " : " + db + " meccs.")); // Kiiratás.
-
-    }
-
     public static void nagyFolennyelNyertek(ArrayList<AbcKosarlabdaLiga> lista, int kulonbseg) {
 
         // A pontszámok közti különbség alapján szűrünk és megszámoljuk hány db ilyen
@@ -142,13 +115,9 @@ public class GyakorlasSteamAPIKezdoSzint {
         });
 
         // Másik megoldás stream api+lambda.
-        long hazaiMeccsek = lista.stream()
-                .filter(a -> a.getHazai().equals("Real Madrid"))
-                .count();
+        long hazaiMeccsek = lista.stream().filter(a -> a.getHazai().equals("Real Madrid")).count();
 
-        long idegenMeccsek = lista.stream()
-                .filter(a -> a.getIdegen().equals("Real Madrid"))
-                .count();
+        long idegenMeccsek = lista.stream().filter(a -> a.getIdegen().equals("Real Madrid")).count();
 
         System.out.println("3. feladat: Real Madrid: Hazai: " + hazaiMeccsek + ", Idegen: " + idegenMeccsek);
 
@@ -166,28 +135,7 @@ public class GyakorlasSteamAPIKezdoSzint {
 
     }
 
-    public static void hazaiGyozelmek(ArrayList<AbcKosarlabdaLiga> lista) {
-
-        // Csoportosítás és számolás.
-        Map<String, Long> hazaiCsapatSzerintiCsoportositas = lista.stream() // Adatfolyammá alakítás.
-                .filter(x -> (x.getHazaiPont() > x.getIdegenPont())) // Szűrési feltétel.
-                // Összegyűjtés (típus, darabszám)
-                .collect(Collectors.groupingBy(AbcKosarlabdaLiga::getHazai, Collectors.counting()));
-
-        System.out.println("A hazai csapatok ennyi meccsen nyertek, csapatok szerint csoportosítva: ");
-
-        // 2. A Map rendezése és kiíratása.
-        hazaiCsapatSzerintiCsoportositas.entrySet().stream()
-                // Rendezés az érték (győzelmek száma) szerint fordított sorrendben, hogy a
-                // csökkenő legyen.
-                .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
-                // Kiíratás.
-                .forEach(entry -> System.out.println(entry.getKey() + " " + entry.getValue()));
-
-    }
-
-    public static void bekertCsapatnevAlapjanSzur(ArrayList<AbcKosarlabdaLiga> lista,
-            String csapatnev) {
+    public static void bekertCsapatnevAlapjanSzur(ArrayList<AbcKosarlabdaLiga> lista, String csapatnev) {
 
         System.out.println(
                 "Ki szűrjük az összes meccset, ahol a bekért csapat játszott hazai- vagy idegenként, külön-külön mecs darab számra.");
@@ -214,10 +162,18 @@ public class GyakorlasSteamAPIKezdoSzint {
         lista.stream().map(x -> x.getIdegen()).distinct().forEach(x -> System.out.println(x));
     }
 
+    public static void helyszinek(ArrayList<AbcKosarlabdaLiga> lista) {
+
+        System.out.println("Itt a lista az összes helyszínnel, ismétlődés nélkül:");
+
+        lista.stream().map(x -> x.getHelyszin()).distinct().forEach(x -> System.out.println(x));
+
+    }
+
     public static void hazaCsapatSzaznalTobbPontotErtEl(ArrayList<AbcKosarlabdaLiga> lista) {
 
-        System.out.println("Ennyi darab meccsen dobott a hazai csapat 100 pontnál többet: " + lista.stream()
-                .filter(x -> x.getHazaiPont() > 100).count());
+        System.out.println("Ennyi darab meccsen dobott a hazai csapat 100 pontnál többet: "
+                + lista.stream().filter(x -> x.getHazaiPont() > 100).count());
     }
 
     public static void idegenCsapatBekertErteknelTobbetSzerzett(ArrayList<AbcKosarlabdaLiga> lista,
@@ -234,8 +190,8 @@ public class GyakorlasSteamAPIKezdoSzint {
         lista.stream().filter(x -> x.getHazaiPont() < x.getIdegenPont())
                 .forEach(x -> System.out.println(x.getIdopont()));
 
-        System.out.println("Összesen " + lista.stream().filter(x -> x.getHazaiPont() < x.getIdegenPont())
-                .count() + " db.");
+        System.out.println(
+                "Összesen " + lista.stream().filter(x -> x.getHazaiPont() < x.getIdegenPont()).count() + " db.");
     }
 
     public static void bekertertekPontFelettiMeccsek(ArrayList<AbcKosarlabdaLiga> lista, int bekertertek) {

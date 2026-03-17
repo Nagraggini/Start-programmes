@@ -1,4 +1,4 @@
-package for_SanFranciscobolJottem;
+package src.forSanFranciscobolJottem;
 
 import java.util.ArrayList;
 

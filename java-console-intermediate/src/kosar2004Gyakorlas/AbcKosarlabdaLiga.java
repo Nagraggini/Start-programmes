@@ -50,16 +50,8 @@ public class AbcKosarlabdaLiga {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append("AbcKosarlabdaLiga{");
-        sb.append("hazai=").append(hazai);
-        sb.append(", idegen=").append(idegen);
-        sb.append(", hazai_pont=").append(hazaiPont);
-        sb.append(", idegen_pont=").append(idegenPont);
-        sb.append(", helyszin=").append(helyszin);
-        sb.append(", idopont=").append(idopont);
-        sb.append('}');
-        return sb.toString();
+        return hazai + " - " + idegen + " eredmény: " + hazaiPont + " : " + idegenPont + " helyszín: " + helyszin
+                + " időpont: " + idopont;
     }
 
 }

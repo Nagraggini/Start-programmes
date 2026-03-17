@@ -1,9 +1,9 @@
-package src.stone_paper_sissor_game;
+package src.stonePaperScissors;
 import java.util.InputMismatchException;
 import java.util.Random;
 import java.util.Scanner; // A try catch-hez kell ez az import.
 
-public class stone_paper_sissor_game {
+public class StonePaperScissors {
     
     public static void stone_paper_sissor_game() {
 
