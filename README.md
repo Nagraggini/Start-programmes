@@ -5,7 +5,7 @@ Welcome! This is my collection of various programming projects, starter template
 ## 📝 Blog
 
 If you are interested in how to start as a web developer, check out my blog (currently only in Hungarian):
-👉 [My blog - Hungarian version](https://blog-sqj1.onrender.com/)
+👉 [My blog - Hungarian version](https://nagraggini-blog.onrender.com/)
 👉 [My java notes - Hungarian version](https://github.com/Nagraggini/blog/blob/main/Java_basic_knowledge.md)
 
 ---

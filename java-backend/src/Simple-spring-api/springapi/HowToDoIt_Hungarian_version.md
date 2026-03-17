@@ -4,7 +4,7 @@ Létrehoztam a legegyszerűbb spring api alkalmazásomat a gyakorláshoz.
 
 # Kezdőknek
 
-[Saját webfejlesztői alapismeretekről szóló blogom](https://blog-sqj1.onrender.com/)
+[Saját webfejlesztői alapismeretekről szóló blogom](https://nagraggini-blog.onrender.com/)
 
 # Spring Boot
 
