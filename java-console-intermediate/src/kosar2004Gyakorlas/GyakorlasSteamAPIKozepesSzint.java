@@ -38,7 +38,10 @@ public class GyakorlasSteamAPIKozepesSzint {
         // hazaiCsapatok(lista);
         // voltDontetlen(lista);
         // kisPontKulonbseguMeccsek(lista);
-        meccsekSzama(lista);
+        // meccsekSzama(lista);
+        // hazaiGyozelemDb(lista);
+        // atlagHazaiPont(lista);
+        varosMeccsei(lista, "Palacio Vistalegre");
 
     }
 
@@ -177,27 +180,29 @@ public class GyakorlasSteamAPIKozepesSzint {
     }
 
     private static void meccsekSzama(ArrayList<AbcKosarlabdaLiga> lista) {
-       System.out.println("Ennyi meccs volt összesen: "+lista.stream().map(AbcKosarlabdaLiga::getIdopont).count()+" db");
+        System.out.println(
+                "Ennyi meccs volt összesen: " + lista.stream().map(AbcKosarlabdaLiga::getIdopont).count() + " db");
+    }
+
+    private static void hazaiGyozelemDb(ArrayList<AbcKosarlabdaLiga> lista) {
+        System.out.println(
+                "Hazai győzelmek: " + lista.stream().filter(x -> (x.getHazaiPont() > x.getIdegenPont())).count());
+    }
+
+    private static void atlagHazaiPont(ArrayList<AbcKosarlabdaLiga> lista) {
+        System.out.println("Átlag hazai pont: " + Math.round(lista.stream().mapToInt(x -> x.getHazaiPont()).average()
+                // ha üres lenne, 0-t ad vissza
+                .orElse(0)));
+    }
+
+    private static void varosMeccsei(ArrayList<AbcKosarlabdaLiga> lista, String varosNev) {
+        lista.stream().filter(x -> x.getHelyszin().equals(varosNev))
+                .forEach(x -> System.out.println("Meccsek " + varosNev + "-ban/ben: \n" + x.toString()));
     }
 
 }
 /*
  * // TODO: A fentieket gyakorold.
- * 6.
- * hazaiGyozelemDb(lista)
- * 
- * Hányszor nyert a hazai csapat?
- * 
- * 7.
- * atlagHazaiPont(lista)
- * 
- * Mennyi az átlag hazai pont?
- * 
- * 8.
- * varosMeccsei(lista, "Budapest")
- * 
- * Add vissza az adott város meccseit.
- * 
  * 9.
  * elsoMeccs(lista)
  * 
