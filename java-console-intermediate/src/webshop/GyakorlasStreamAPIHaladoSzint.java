@@ -1,23 +1,25 @@
 package webshop;
 
 import java.io.IOException;
-import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
-
-import kosar2004gyakorlas.AbcKosarlabdaLiga2;
 
 public class GyakorlasStreamAPIHaladoSzint {
     // puska: https://github.com/Nagraggini/blog/blob/main/Java_basic_knowledge.md
+
+    private static ArrayList<Order> lista = new ArrayList<>();
+
     public static void main(String[] args) {
 
-        Fajlbeolvasasa("webshopdata.csv");
+        Fajlbeolvasasa("java-console-intermediate/webshopdata.csv");
 
     }
 
-    // TODO fájlbeolvasása
+    // TODO later fájlbeolvasása
 
     public static void Fajlbeolvasasa(String fajlneve) {
         // Van amikor ez a jó: StandardCharsets.UTF_8
@@ -33,7 +35,7 @@ public class GyakorlasStreamAPIHaladoSzint {
         }
 
         try {
-            List<String> sorok = Files.readAllLines(path, Charset.forName("windows-1250"));
+            List<String> sorok = Files.readAllLines(path, StandardCharsets.UTF_8);
 
             // 1-től megyünk, mert van oszlopnév is.
             for (int i = 1; i < sorok.size(); i++) {
@@ -42,21 +44,25 @@ public class GyakorlasStreamAPIHaladoSzint {
                  * public Order(String orderId, String customerName, LocalDate orderDate,
                  * OrderStatus status, List<OrderItem> items, String country)
                  */
-                lista.add(new Order(t[0], t[1], LocalDate.parse(t[2]), null, null, t[5])
+                // Mivel a CSV-ben valószínűleg nincs benne az összes OrderItem,
+                // itt egy üres listát adunk át, vagy dummy adatokat a teszteléshez.
+                lista.add(new Order(
+                        t[0],
+                        t[1],
+                        LocalDate.parse(t[2]),
+                        OrderStatus.valueOf(t[3]), // Feltételezve, hogy a 4. oszlop a státusz
+                        new ArrayList<>(), // Itt kellene lennie a tételeknek
+                        t[5]));
             }
         } catch (IOException ex) {
             System.getLogger(Order.class.getName()).log(System.Logger.Level.ERROR, (String) null, ex);
         }
+
+        lista.stream().forEach(x -> System.out.println(x.toString()));
     }
 
-    // TODO logikai feltételek és intervallumok
     /*
-     * Gyakorold: Logikai feltételek és az "Intervallum-vizsgálat". De Morgan
-     * azonosságok (Egyszerűsítés). Az isAfter(), isBefore() és isEqual() metódusok
-     * használatát.
-     */
-    /*
-     * TODO
+     * TODO later
      * Ez egy kiváló alap! Az Order és OrderItem struktúra lehetővé teszi, hogy
      * túllépjünk az egyszerű szűréseken, és bonyolultabb adatelemzési feladatokat
      * oldjunk meg.

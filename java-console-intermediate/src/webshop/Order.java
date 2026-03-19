@@ -64,8 +64,14 @@ public class Order {
 
     // Egy segédmetódus a teljes összeg számításához (Stream-en belül is hasznos)
     public double getTotalAmount() {
-        return items.stream()
-                .mapToDouble(item -> item.price() * item.quantity())
-                .sum();
+        // TODO later
+        return 0;
     }
+
+    @Override
+    public String toString() {
+        return "Order [orderId=" + orderId + ", customerName=" + customerName + ", orderDate=" + orderDate + ", status="
+                + status + ", items=" + items + ", country=" + country + "]";
+    }
+
 }

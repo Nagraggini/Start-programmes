@@ -245,9 +245,13 @@ public class GyakorlasSteamAPIKozepesSzint {
 /*
  * // TODO: Ezeket gyakorold.
  * 
- * 8️⃣ Legkevesebb pont
- * 
- * Találd meg azt a meccset ahol a legkevesebb pont született összesen.
+ * // TODO logikai feltételek és intervallumok
+ * /*
+ * Gyakorold: Logikai feltételek és az "Intervallum-vizsgálat". De Morgan
+ * azonosságok (Egyszerűsítés). Az isAfter(), isBefore() és isEqual() metódusok
+ * használatát.
+ */
+/*
  * 
  * hazai_pont + idegen_pont 9️⃣ 2010 utáni meccsek
  * 

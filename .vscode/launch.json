@@ -6,6 +6,13 @@
     "configurations": [
         {
             "type": "java",
+            "name": "GyakorlasStreamAPIHaladoSzint",
+            "request": "launch",
+            "mainClass": "webshop.GyakorlasStreamAPIHaladoSzint",
+            "projectName": ""
+        },
+        {
+            "type": "java",
             "name": "GyakorlasSteamAPIKozepesSzint",
             "request": "launch",
             "mainClass": "kosar2004gyakorlas.GyakorlasSteamAPIKozepesSzint",
