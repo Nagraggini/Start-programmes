@@ -1,6 +1,3 @@
 {
-    "java.compile.nullAnalysis.mode": "automatic",
-    "java.project.sourcePaths": [
-        "java-console-intermediate/src"
-    ]
+    "java.debug.settings.onBuildFailureProceed": true
 }
