@@ -29,6 +29,6 @@ public class MainGame {
          * Támadás indul...
          * Kardcsapás!
          */
-        // TODO oop gyakorlása
+        // TODO oop gyakorlása és absztrakt osztály.
     }
 }
