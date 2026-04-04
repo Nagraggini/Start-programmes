@@ -1,3 +1,6 @@
+![Top Language](https://img.shields.io/github/languages/top/Nagraggini/start-projects)
+![License](https://img.shields.io/badge/license-MIT-green)
+
 # Start-projects
 
 Welcome! This is my collection of various programming projects, starter templates, and learning materials.
